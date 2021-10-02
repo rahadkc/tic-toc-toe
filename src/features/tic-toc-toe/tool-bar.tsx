@@ -7,6 +7,7 @@ export type IToolBarProps = {}
 
 const ToolBar: React.FC<IToolBarProps> = () => {
   const dispatch = useAppDispatch()
+
   const handleReset = () => {
     dispatch(resetGame())
   }
