@@ -1,15 +1,15 @@
 import { cleanup, render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { store } from '../../../app/store'
-import ToolBar from '../tool-bar'
+import Board from '../board'
 
-describe('<ToolBar>', () => {
+describe('<Board>', () => {
   afterEach(cleanup)
 
-  test('render ToolBar component', () => {
+  test('render Board component', () => {
     const element = render(
       <Provider store={store}>
-        <ToolBar />
+        <Board />
       </Provider>
     )
     expect(element).toMatchSnapshot()
