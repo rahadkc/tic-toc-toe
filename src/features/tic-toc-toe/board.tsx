@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Circle from '../../component/circle'
+import Cross from '../../component/cross'
 import Square from './square'
 
 export type IBoardProps = {}
@@ -28,7 +30,15 @@ const Board: React.FC<IBoardProps> = () => {
     })
   }
 
-  return <Grid>{renderSquares()}</Grid>
+  return (
+    <Grid>
+      <div style={{ background: 'red' }}>
+        <Circle />
+        <Cross />
+      </div>
+      {renderSquares()}
+    </Grid>
+  )
 }
 
 const Grid = styled.div`
