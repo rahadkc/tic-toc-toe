@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import Circle from '../../component/circle'
 import Cross from '../../component/cross'
@@ -34,7 +34,7 @@ const Board: React.FC<IBoardProps> = () => {
     })
   }
 
-  const renderSquares = () => {
+  const renderSquares = useCallback(() => {
     return squares.map((square: SquareType, i: number) => {
       return (
         <Square
@@ -44,7 +44,7 @@ const Board: React.FC<IBoardProps> = () => {
         />
       )
     })
-  }
+  }, [squares])
 
   return <Grid>{renderSquares()}</Grid>
 }
