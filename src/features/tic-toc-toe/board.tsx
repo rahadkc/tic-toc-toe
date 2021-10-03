@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Square from './square'
 
 export type IBoardProps = {}
 
@@ -17,13 +18,13 @@ const Board: React.FC<IBoardProps> = () => {
   const [gameState, setGameState] = useState(initialState)
   const { squares } = gameState
 
+  const handleClick = () => {
+    console.log('clicked')
+  }
+
   const renderSquares = () => {
     return squares.map((_square: any, i: number) => {
-      return (
-        <button key={i} onClick={() => {}}>
-          Square
-        </button>
-      )
+      return <Square key={i} value={_square} onClick={handleClick} />
     })
   }
 
