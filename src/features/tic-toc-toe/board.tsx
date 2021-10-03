@@ -20,25 +20,33 @@ const Board: React.FC<IBoardProps> = () => {
   const [gameState, setGameState] = useState(initialState)
   const { squares } = gameState
 
-  const handleClick = () => {
-    console.log('clicked')
-  }
+  const handleClick = (i: number) => {
+    setGameState((prevState: GameState) => {
+      const { squares, xIsNext } = prevState
+      const newSquares = [...squares]
 
-  const renderSquares = () => {
-    return squares.map((_square: any, i: number) => {
-      return <Square key={i} value={_square} onClick={handleClick} />
+      newSquares[i] = xIsNext ? { value: 'X', icon: <Cross /> } : { value: 'O', icon: <Circle /> }
+
+      return {
+        squares: newSquares,
+        xIsNext: !xIsNext
+      }
     })
   }
 
-  return (
-    <Grid>
-      <div style={{ background: 'red' }}>
-        <Circle />
-        <Cross />
-      </div>
-      {renderSquares()}
-    </Grid>
-  )
+  const renderSquares = () => {
+    return squares.map((square: any, i: number) => {
+      return (
+        <Square
+          key={i}
+          value={square === null ? square : square.icon}
+          onClick={() => handleClick(i)}
+        />
+      )
+    })
+  }
+
+  return <Grid>{renderSquares()}</Grid>
 }
 
 const Grid = styled.div`
