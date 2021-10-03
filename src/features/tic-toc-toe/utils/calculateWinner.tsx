@@ -1,4 +1,6 @@
-function calculateWinner(squares: any[]) {
+import { SquareType } from '../types'
+
+function calculateWinner(squares: SquareType[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],

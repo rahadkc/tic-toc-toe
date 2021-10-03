@@ -35,10 +35,13 @@ const Board: React.FC<IBoardProps> = () => {
   }
 
   const renderSquares = useCallback(() => {
+    const winner = calculateWinner(squares)
+
     return squares.map((square: SquareType, i: number) => {
       return (
         <Square
           key={i}
+          isInWinner={winner ? winner.line.includes(i) : false}
           value={square === null ? square : square.icon}
           onClick={() => handleClick(i)}
         />
@@ -46,7 +49,11 @@ const Board: React.FC<IBoardProps> = () => {
     })
   }, [squares])
 
-  return <Grid>{renderSquares()}</Grid>
+  return (
+    <div>
+      <Grid>{renderSquares()}</Grid>
+    </div>
+  )
 }
 
 const Grid = styled.div`
