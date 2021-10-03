@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export type ISquareProps = {
-  value: string | null
+  value: string | null | JSX.Element
   onClick: () => void
 }
 
