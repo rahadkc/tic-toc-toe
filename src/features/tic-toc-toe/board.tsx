@@ -3,15 +3,12 @@ import styled from 'styled-components'
 import Circle from '../../component/circle'
 import Cross from '../../component/cross'
 import Square from './square'
+import { GameStateType, SquareType } from './types'
+import calculateWinner from './utils/calculateWinner'
 
 export type IBoardProps = {}
 
-export interface GameState {
-  squares: (null | string | { value: string; icon: JSX.Element | string })[]
-  xIsNext: boolean
-}
-
-const initialState: GameState = {
+const initialState: GameStateType = {
   squares: Array(9).fill(null),
   xIsNext: true
 }
@@ -21,7 +18,10 @@ const Board: React.FC<IBoardProps> = () => {
   const { squares } = gameState
 
   const handleClick = (i: number) => {
-    setGameState((prevState: GameState) => {
+    if (calculateWinner(squares) || squares[i]) {
+      return
+    }
+    setGameState((prevState: GameStateType) => {
       const { squares, xIsNext } = prevState
       const newSquares = [...squares]
 
@@ -35,7 +35,7 @@ const Board: React.FC<IBoardProps> = () => {
   }
 
   const renderSquares = () => {
-    return squares.map((square: any, i: number) => {
+    return squares.map((square: SquareType, i: number) => {
       return (
         <Square
           key={i}
