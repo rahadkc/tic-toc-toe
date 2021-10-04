@@ -11,9 +11,9 @@ const Game: React.FC<IGameProps> = () => {
     <Wrapper>
       <Box>
         <Board />
-        <ToolBar />
+        <Status />
       </Box>
-      <Status />
+      <ToolBar />
     </Wrapper>
   )
 }
@@ -24,12 +24,16 @@ const Wrapper = styled.div`
   flex-direction: column;
   margin-top: 80px;
   margin-bottom: 80px;
-  flex: 1;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
 `
 
 const Box = styled.div`
   display: flex;
-  align-items: flex-start;
+  //   align-items: flex-start;
+  align-items: center;
+  flex-direction: column;
 `
 
 export default Game
