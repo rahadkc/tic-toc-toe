@@ -1,4 +1,5 @@
 import { SquareType } from '../types'
+// : null | { winner: string; line: number[] }
 
 function calculateWinner(squares: SquareType[]) {
   const lines = [
@@ -13,14 +14,15 @@ function calculateWinner(squares: SquareType[]) {
   ]
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i]
+    const firstValue = squares[a]
 
-    if (squares[a] !== null) {
+    if (firstValue) {
       if (
-        squares[a]?.value &&
-        squares[a]?.value === squares[b]?.value &&
-        squares[a]?.value === squares[c]?.value
+        firstValue.value &&
+        firstValue.value === squares[b]?.value &&
+        firstValue.value === squares[c]?.value
       ) {
-        return { winner: squares[a]?.value, line: lines[i] }
+        return { winner: firstValue.value, line: lines[i] }
       }
     }
   }
