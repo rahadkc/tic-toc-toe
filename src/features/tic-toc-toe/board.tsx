@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react'
 import styled from 'styled-components'
-import { useAppDispatch } from '../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import Circle from '../../component/circle'
 import Cross from '../../component/cross'
-import { gameStatus } from './gameSlice'
+import { gameStatus, resetGame, selectReset } from './gameSlice'
 import Square from './square'
 import { GameStateType, SquareType } from './types'
 import calculateWinner from './utils/calculateWinner'
@@ -20,6 +20,8 @@ const getNext = (xIsNext: boolean): string => (xIsNext ? 'X' : 'O')
 
 const Board: React.FC<IBoardProps> = () => {
   const dispatch = useAppDispatch()
+  const reset = useAppSelector(selectReset)
+
   const [gameState, setGameState] = useState(initialState)
   const { squares, xIsNext } = gameState
   const winner = calculateWinner(squares)
@@ -54,12 +56,19 @@ const Board: React.FC<IBoardProps> = () => {
     })
   }, [squares])
 
+  const handleReset = () => {
+    setGameState(initialState)
+    dispatch(resetGame())
+  }
+
   useEffect(() => {
     const status = prepareStatus({ winner, squares, nextValue: getNext(xIsNext) })
     dispatch(gameStatus(status))
   }, [winner, squares, xIsNext])
 
-  //   console.log('gameStatus :>> ', gameStatus)
+  useEffect(() => {
+    if (reset) handleReset()
+  }, [reset])
 
   return (
     <div>
