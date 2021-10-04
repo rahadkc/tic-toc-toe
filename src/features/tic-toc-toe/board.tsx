@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import Circle from '../../component/circle'
 import Cross from '../../component/cross'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
+import { usePrepareLocalValueToRender } from '../../hooks/usePrepareLocalValueToRender'
 import { gameStatus, resetGame, selectReset } from './gameSlice'
 import Square from './square'
-import { GameStateType, SquareType } from './types'
+import { GameStateLocalType, GameStateType, SquareType } from './types'
 import calculateWinner from './utils/calculateWinner'
 import prepareStatus from './utils/prepareStatus'
 
@@ -18,11 +20,23 @@ const initialState: GameStateType = {
 
 const getNext = (xIsNext: boolean): string => (xIsNext ? 'X' : 'O')
 
+// const prepareLocalValue = (data: GameStateType) => {
+//   const { xIsNext, squares } = data
+//   const localSquares = squares.map((square: SquareType) => {
+//     return square ? { value: square.value, icon: square.value } : square
+//   })
+//   return {
+//     squares: localSquares,
+//     xIsNext
+//   }
+// }
+
 const Board: React.FC<IBoardProps> = () => {
   const dispatch = useAppDispatch()
   const reset = useAppSelector(selectReset)
-
-  const [gameState, setGameState] = useState(initialState)
+  const [localValues, setLocalValues] = useLocalStorage('game', initialState)
+  const prepareLocalValueToRender = usePrepareLocalValueToRender(localValues)
+  const [gameState, setGameState] = useState(prepareLocalValueToRender)
   const { squares, xIsNext } = gameState
   const winner = calculateWinner(squares)
 
@@ -35,6 +49,17 @@ const Board: React.FC<IBoardProps> = () => {
       const newSquares = [...squares]
 
       newSquares[i] = xIsNext ? { value: 'X', icon: <Cross /> } : { value: 'O', icon: <Circle /> }
+
+      return {
+        squares: newSquares,
+        xIsNext: !xIsNext
+      }
+    })
+
+    setLocalValues((prevState: GameStateLocalType) => {
+      const { squares, xIsNext } = prevState
+      const newSquares = [...squares]
+      newSquares[i] = xIsNext ? { value: 'X', icon: 'X' } : { value: 'O', icon: 'O' }
 
       return {
         squares: newSquares,
