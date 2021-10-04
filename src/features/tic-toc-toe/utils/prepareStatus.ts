@@ -8,9 +8,9 @@ function prepareStatus({
   winner: null | { winner: string; line: number[] }
   squares: SquareType[]
   nextValue: string
-}) {
+}): string {
   return winner
-    ? `Winner: ${winner.winner}`
+    ? `Hurrayyy!: ${winner.winner} is winner.`
     : squares.every(Boolean)
     ? 'Game is draw!'
     : `Next player: ${nextValue}`
