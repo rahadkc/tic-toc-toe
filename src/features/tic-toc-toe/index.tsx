@@ -9,11 +9,11 @@ export type IGameProps = {}
 const Game: React.FC<IGameProps> = () => {
   return (
     <Wrapper>
-      <Status />
       <Box>
         <Board />
         <ToolBar />
       </Box>
+      <Status />
     </Wrapper>
   )
 }
@@ -23,6 +23,8 @@ const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 80px;
+  margin-bottom: 80px;
+  flex: 1;
 `
 
 const Box = styled.div`
