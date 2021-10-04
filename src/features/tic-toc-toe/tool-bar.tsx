@@ -28,11 +28,21 @@ const Grid = styled.div`
 const Button = styled.button`
   box-shadow: none;
   border: none;
-  font-size: 20px;
   font-family: Lucida Sans Unicode;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.15);
   color: white;
   font-size: 48px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  width: 42px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  transition: 0.4s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
 `
 
 export default React.memo(ToolBar)
