@@ -1,10 +1,12 @@
 :root {
   --light: #fff;
   --cell-size: 140px;
-  --grid-gap: 5px;
-  --theme-color: #DBA800;
+  --grid-gap: 2px;
+  --theme-color: #c2940a;
   --success-color: #4BB543;
   --bg-color: #232323;
+  --bg-square: #333332;
+  --border-color: #898888;
 }
 
 body {
@@ -14,6 +16,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
 }
 
 code {
