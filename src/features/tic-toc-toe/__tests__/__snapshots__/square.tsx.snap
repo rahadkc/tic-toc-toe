@@ -6,13 +6,13 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="sc-bdfBQB iWACaZ"
+        class="sc-bdfBQB iCaZYq"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="sc-bdfBQB iWACaZ"
+      class="sc-bdfBQB iCaZYq"
     />
   </div>,
   "debug": [Function],
@@ -75,7 +75,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="sc-bdfBQB iWACaZ"
+        class="sc-bdfBQB iCaZYq"
       >
         test
       </button>
@@ -83,7 +83,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="sc-bdfBQB iWACaZ"
+      class="sc-bdfBQB iCaZYq"
     >
       test
     </button>

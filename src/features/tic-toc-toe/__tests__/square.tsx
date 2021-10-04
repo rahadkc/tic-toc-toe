@@ -9,9 +9,9 @@ describe('<Square>', () => {
   test('render Square component with null value', () => {
     const value = null
     const element = render(
-      <Provider store={store}>
-        <Square value={value} onClick={() => {}} />
-      </Provider>
+      //   <Provider store={store}>
+      <Square value={value} onClick={() => {}} />
+      //   </Provider>
     )
     expect(element.container.firstChild).toBeEmpty()
     expect(element).toMatchSnapshot()
@@ -20,9 +20,9 @@ describe('<Square>', () => {
   test('render Square component with string value', () => {
     const value = 'test'
     const element = render(
-      <Provider store={store}>
-        <Square value={value} onClick={() => {}} />
-      </Provider>
+      //   <Provider store={store}>
+      <Square value={value} onClick={() => {}} />
+      //   </Provider>
     )
     expect(element.container.firstChild).not.toBeEmpty()
     expect(element.queryByText(value)).toBeInTheDocument()
