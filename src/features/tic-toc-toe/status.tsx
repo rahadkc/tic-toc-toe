@@ -14,7 +14,7 @@ const GameStatus = styled.p`
   color: var(--theme-color);
   font-size: 22px;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 4rem;
   letter-spacing: 1px;
 `
 export default React.memo(Status)

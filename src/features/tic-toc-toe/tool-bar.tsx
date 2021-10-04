@@ -35,7 +35,7 @@ const Button = styled.button`
   border: none;
   font-family: Lucida Sans Unicode;
   background: rgba(255, 255, 255, 0.15);
-  color: white;
+  color: var(--reset-color);
   font-size: 48px;
   border-radius: 0 5px 5px 0;
   cursor: pointer;

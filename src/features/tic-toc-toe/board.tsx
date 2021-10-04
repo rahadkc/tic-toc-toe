@@ -9,6 +9,7 @@ import { gameStatus, resetGame, selectReset } from './gameSlice'
 import Square from './square'
 import { GameStateLocalType, GameStateType, SquareType } from './types'
 import calculateWinner from './utils/calculateWinner'
+import { player1, player2 } from './utils/constant'
 import prepareStatus from './utils/prepareStatus'
 
 export type IBoardProps = {}
@@ -18,18 +19,7 @@ const initialState: GameStateType = {
   xIsNext: true
 }
 
-const getNext = (xIsNext: boolean): string => (xIsNext ? 'X' : 'O')
-
-// const prepareLocalValue = (data: GameStateType) => {
-//   const { xIsNext, squares } = data
-//   const localSquares = squares.map((square: SquareType) => {
-//     return square ? { value: square.value, icon: square.value } : square
-//   })
-//   return {
-//     squares: localSquares,
-//     xIsNext
-//   }
-// }
+const getNext = (xIsNext: boolean): string => (xIsNext ? player1 : player2)
 
 const Board: React.FC<IBoardProps> = () => {
   const dispatch = useAppDispatch()
@@ -44,11 +34,14 @@ const Board: React.FC<IBoardProps> = () => {
     if (calculateWinner(squares) || squares[i]) {
       return
     }
+
     setGameState((prevState: GameStateType) => {
       const { squares, xIsNext } = prevState
       const newSquares = [...squares]
 
-      newSquares[i] = xIsNext ? { value: 'X', icon: <Cross /> } : { value: 'O', icon: <Circle /> }
+      newSquares[i] = xIsNext
+        ? { value: player1, icon: <Cross /> }
+        : { value: player2, icon: <Circle /> }
 
       return {
         squares: newSquares,
@@ -59,7 +52,9 @@ const Board: React.FC<IBoardProps> = () => {
     setLocalValues((prevState: GameStateLocalType) => {
       const { squares, xIsNext } = prevState
       const newSquares = [...squares]
-      newSquares[i] = xIsNext ? { value: 'X', icon: 'X' } : { value: 'O', icon: 'O' }
+      newSquares[i] = xIsNext
+        ? { value: player1, icon: player1 }
+        : { value: player2, icon: player2 }
 
       return {
         squares: newSquares,
@@ -96,11 +91,7 @@ const Board: React.FC<IBoardProps> = () => {
     if (reset) handleReset()
   }, [reset])
 
-  return (
-    <div>
-      <Grid>{renderSquares()}</Grid>
-    </div>
-  )
+  return <Grid>{renderSquares()}</Grid>
 }
 
 const Grid = styled.div`

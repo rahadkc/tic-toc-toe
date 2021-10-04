@@ -5,9 +5,14 @@ export interface GameStateType {
   xIsNext: boolean
 }
 
-export type SquareTypeLocal = null | { value: string; icon: string }
+export type SquareLocalType = null | { value: string; icon: string }
 
 export interface GameStateLocalType {
-  squares: SquareTypeLocal[]
+  squares: SquareLocalType[]
   xIsNext: boolean
+}
+
+export enum Player {
+  'X',
+  'O'
 }

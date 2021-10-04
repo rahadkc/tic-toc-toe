@@ -1,5 +1,4 @@
 import { SquareType } from '../types'
-// : null | { winner: string; line: number[] }
 
 function calculateWinner(squares: SquareType[]) {
   const lines = [
