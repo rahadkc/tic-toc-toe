@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { resetGame, selectReset } from './gameSlice'
+import { useAppDispatch } from '../../app/hooks'
+import { resetGame } from './gameSlice'
 
 export type IToolBarProps = {}
 
 const ToolBar: React.FC<IToolBarProps> = () => {
   const dispatch = useAppDispatch()
-  const reset = useAppSelector(selectReset)
 
   const handleReset = () => {
     dispatch(resetGame())
   }
-
-  useEffect(() => {
-    if (reset) handleReset()
-  }, [reset])
 
   return (
     <Grid>
