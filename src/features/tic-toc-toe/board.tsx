@@ -83,6 +83,7 @@ const Board: React.FC<IBoardProps> = () => {
 
   const handleReset = () => {
     setGameState(initialState)
+    setLocalValues(initialState)
     dispatch(resetGame())
   }
 
