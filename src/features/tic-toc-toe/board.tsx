@@ -1,10 +1,13 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useMemo, useEffect } from 'react'
 import styled from 'styled-components'
+import { useAppDispatch } from '../../app/hooks'
 import Circle from '../../component/circle'
 import Cross from '../../component/cross'
+import { gameStatus } from './gameSlice'
 import Square from './square'
 import { GameStateType, SquareType } from './types'
 import calculateWinner from './utils/calculateWinner'
+import prepareStatus from './utils/prepareStatus'
 
 export type IBoardProps = {}
 
@@ -13,9 +16,13 @@ const initialState: GameStateType = {
   xIsNext: true
 }
 
+const getNext = (xIsNext: boolean): string => (xIsNext ? 'X' : 'O')
+
 const Board: React.FC<IBoardProps> = () => {
+  const dispatch = useAppDispatch()
   const [gameState, setGameState] = useState(initialState)
-  const { squares } = gameState
+  const { squares, xIsNext } = gameState
+  const winner = calculateWinner(squares)
 
   const handleClick = (i: number) => {
     if (calculateWinner(squares) || squares[i]) {
@@ -35,8 +42,6 @@ const Board: React.FC<IBoardProps> = () => {
   }
 
   const renderSquares = useCallback(() => {
-    const winner = calculateWinner(squares)
-
     return squares.map((square: SquareType, i: number) => {
       return (
         <Square
@@ -48,6 +53,13 @@ const Board: React.FC<IBoardProps> = () => {
       )
     })
   }, [squares])
+
+  useEffect(() => {
+    const status = prepareStatus({ winner, squares, nextValue: getNext(xIsNext) })
+    dispatch(gameStatus(status))
+  }, [winner, squares, xIsNext])
+
+  //   console.log('gameStatus :>> ', gameStatus)
 
   return (
     <div>
