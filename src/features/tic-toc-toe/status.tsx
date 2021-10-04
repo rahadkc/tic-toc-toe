@@ -12,9 +12,9 @@ const Status: React.FC<IStatusProps> = () => {
 
 const GameStatus = styled.p`
   color: var(--theme-color);
-  font-size: 22px;
+  font-size: 1.475rem;
   font-weight: bold;
-  margin-bottom: 4rem;
+  margin-top: 3rem;
   letter-spacing: 1px;
 `
 export default React.memo(Status)

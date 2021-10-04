@@ -10,7 +10,7 @@ function prepareStatus({
   nextValue: string
 }): string {
   return winner
-    ? `Hurrayyy!: ${winner.winner} is winner.`
+    ? `Hurrayyy!: ${winner.winner} won the game.`
     : squares.every(Boolean)
     ? 'Game is draw!'
     : `Next player: ${nextValue}`

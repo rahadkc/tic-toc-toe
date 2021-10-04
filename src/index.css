@@ -2,13 +2,12 @@
   --light: #fff;
   --cell-size: 140px;
   --grid-gap: 10px;
-  --primary-color: #232323;
+  --primary-color: #171616;
   --secondary-color: #1c1c1ba8;
   --border-color: #45454575;
   --theme-color: #c2940a;
   --success-color: #4bb5431f;
   --success-border-color: #4bb5433d;
-  --reset-color: var(--light)
 }
 
 body {
