@@ -12,6 +12,8 @@ export interface GameStateLocalType {
   xIsNext: boolean
 }
 
+export type WinnerType = null | { winner: string; line: number[] }
+
 export enum Player {
   'X',
   'O'

@@ -1,11 +1,11 @@
-import { SquareType } from '../types'
+import { SquareType, WinnerType } from '../types'
 
 function prepareStatus({
   winner,
   squares,
   nextValue
 }: {
-  winner: null | { winner: string; line: number[] }
+  winner: WinnerType
   squares: SquareType[]
   nextValue: string
 }): string {
