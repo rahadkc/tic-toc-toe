@@ -5,8 +5,8 @@ function prepareStatus({
   squares,
   nextValue
 }: {
-  winner: null | WinnerType
-  squares: (null | SquareType | SquareLocalType)[]
+  winner: WinnerType
+  squares: (SquareType | SquareLocalType)[]
   nextValue: string
 }): string {
   return winner
