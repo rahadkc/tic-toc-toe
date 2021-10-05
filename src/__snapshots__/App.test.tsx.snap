@@ -9,10 +9,10 @@ Object {
         class="App"
       >
         <div
-          class="sc-iBPTik spnJh"
+          class="sc-iBPTik dyCPIf"
         >
           <div
-            class="sc-fubCzh hTpBVi"
+            class="sc-fubCzh cgUNKa"
           >
             <div
               class="sc-hKgJUU fomNMZ"
@@ -45,21 +45,21 @@ Object {
                 class="sc-dlfnuX isYWZy"
               />
             </div>
-            <div
-              class="sc-eCstlR fQbJtK"
+            <p
+              class="sc-gKseQn bfNwkI"
             >
-              <button
-                class="sc-jSgvzq bXgwQG"
-              >
-                ↻
-              </button>
-            </div>
+              Next player: X
+            </p>
           </div>
-          <p
-            class="sc-gKseQn bfNwkI"
+          <div
+            class="sc-eCstlR fQbJtK"
           >
-            Next player: X
-          </p>
+            <button
+              class="sc-jSgvzq bXgwQG"
+            >
+              ↻
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -69,10 +69,10 @@ Object {
       class="App"
     >
       <div
-        class="sc-iBPTik spnJh"
+        class="sc-iBPTik dyCPIf"
       >
         <div
-          class="sc-fubCzh hTpBVi"
+          class="sc-fubCzh cgUNKa"
         >
           <div
             class="sc-hKgJUU fomNMZ"
@@ -105,21 +105,21 @@ Object {
               class="sc-dlfnuX isYWZy"
             />
           </div>
-          <div
-            class="sc-eCstlR fQbJtK"
+          <p
+            class="sc-gKseQn bfNwkI"
           >
-            <button
-              class="sc-jSgvzq bXgwQG"
-            >
-              ↻
-            </button>
-          </div>
+            Next player: X
+          </p>
         </div>
-        <p
-          class="sc-gKseQn bfNwkI"
+        <div
+          class="sc-eCstlR fQbJtK"
         >
-          Next player: X
-        </p>
+          <button
+            class="sc-jSgvzq bXgwQG"
+          >
+            ↻
+          </button>
+        </div>
       </div>
     </div>
   </div>,
