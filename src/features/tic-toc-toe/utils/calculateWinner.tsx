@@ -1,6 +1,6 @@
-import { SquareType } from '../types'
+import { SquareType, SquareLocalType } from '../types'
 
-function calculateWinner(squares: SquareType[]) {
+function calculateWinner(squares: (null | SquareType)[] | (null | SquareLocalType)[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],

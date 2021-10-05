@@ -1,16 +1,16 @@
-import { SquareType, WinnerType } from '../types'
+import { SquareLocalType, SquareType, WinnerType } from '../types'
 
 function prepareStatus({
   winner,
   squares,
   nextValue
 }: {
-  winner: WinnerType
-  squares: SquareType[]
+  winner: null | WinnerType
+  squares: (null | SquareType | SquareLocalType)[]
   nextValue: string
 }): string {
   return winner
-    ? `Hurrayyy!: ${winner.winner} won the game.`
+    ? `Hurrayyy!: ${winner?.winner} won the game.`
     : squares.every(Boolean)
     ? 'Game is draw!'
     : `Next player: ${nextValue}`
