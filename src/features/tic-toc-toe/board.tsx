@@ -29,7 +29,6 @@ const Board: React.FC<IBoardProps> = () => {
   const [gameState, setGameState] = useState(prepareLocalValueToRender)
   const { squares, xIsNext } = gameState
   const winner = calculateWinner(squares)
-  console.log('winner :>> ', winner)
 
   const handleClick = (i: number) => {
     if (calculateWinner(squares) || squares[i]) {
