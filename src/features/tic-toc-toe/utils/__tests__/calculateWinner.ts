@@ -18,17 +18,17 @@ describe('calculateWinner():', () => {
   afterEach(cleanup)
 
   test('Array of null params should return null', () => {
-    const func = calculateWinner(squares)
+    const func: WinnerType = calculateWinner(squares)
     expect(func).toBeNull()
   })
 
   test('Array of null and Value params should return null', () => {
-    const func = calculateWinner(squaresWith)
+    const func: WinnerType = calculateWinner(squaresWith)
     expect(func).toBeNull()
   })
 
   test('Array with a winning combo should return a winner', () => {
-    const func: null | WinnerType = calculateWinner(squaresWithWinner)
+    const func: WinnerType = calculateWinner(squaresWithWinner)
     expect(func).not.toBeNull()
   })
 })

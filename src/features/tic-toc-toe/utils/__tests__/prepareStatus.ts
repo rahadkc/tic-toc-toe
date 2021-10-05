@@ -1,7 +1,5 @@
 import { cleanup, render } from '@testing-library/react'
-import calculateWinner from '../calculateWinner'
 import { player1, player2 } from '../constant'
-import { WinnerType } from '../../types'
 import prepareStatus from '../prepareStatus'
 
 const squarePlayer1 = { value: player1, icon: player1 }
