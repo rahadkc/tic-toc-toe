@@ -22,25 +22,25 @@ describe('prepareStatus()', () => {
   afterEach(cleanup)
 
   test('winner: null, squares: null[] and nextValue return nextValue', () => {
-    const func = prepareStatus({ winner, squares, nextValue })
-    expect(func).toMatch(/Z/)
+    const status = prepareStatus({ winner, squares, nextValue })
+    expect(status).toMatch(/Z/)
   })
 
   test('winner: null, all squares with a value and nextValue return Draw!', () => {
-    const func = prepareStatus({
+    const status = prepareStatus({
       winner: null,
       squares: squaresWithValue,
       nextValue
     })
-    expect(func.length).toBeGreaterThan(0)
+    expect(status.length).toBeGreaterThan(0)
   })
 
   test('has winner, squares with winning combo and nextValue return winning text', () => {
-    const func = prepareStatus({
+    const status = prepareStatus({
       winner: { winner: 'Y', line: [0, 1, 2] },
       squares: squaresWithWinner,
       nextValue
     })
-    expect(func).toMatch(/Y/)
+    expect(status).toMatch(/Y/)
   })
 })
