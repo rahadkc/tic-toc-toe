@@ -1,4 +1,5 @@
 import { cleanup, render } from '@testing-library/react'
+import { GameStatusType } from '../../types'
 import { player1, player2 } from '../constant'
 import prepareStatus from '../prepareStatus'
 
@@ -17,13 +18,28 @@ const squaresWithWinner = [
 
 const winner = null
 const nextValue = 'Z'
+const winPlayer = 'Y'
+
+const defaultStatus: GameStatusType = { draw: false, win: false, next: nextValue, winner: null }
+const drawStatus: GameStatusType = {
+  draw: true,
+  win: false,
+  next: nextValue,
+  winner: null
+}
+const winStatus: GameStatusType = {
+  draw: false,
+  win: true,
+  next: nextValue,
+  winner: { winner: winPlayer, line: [0, 1, 2] }
+}
 
 describe('prepareStatus()', () => {
   afterEach(cleanup)
 
-  test('winner: null, squares: null[] and nextValue return nextValue', () => {
+  test('winner: null, chickn squares: null[] and nextValue return nextValue', () => {
     const status = prepareStatus({ winner, squares, nextValue })
-    expect(status).toMatch(/Z/)
+    expect(status).toEqual(defaultStatus)
   })
 
   test('winner: null, all squares with a value and nextValue return Draw!', () => {
@@ -32,15 +48,15 @@ describe('prepareStatus()', () => {
       squares: squaresWithValue,
       nextValue
     })
-    expect(status.length).toBeGreaterThan(0)
+    expect(status).toEqual(drawStatus)
   })
 
   test('has winner, squares with winning combo and nextValue return winning text', () => {
     const status = prepareStatus({
-      winner: { winner: 'Y', line: [0, 1, 2] },
+      winner: { winner: winPlayer, line: [0, 1, 2] },
       squares: squaresWithWinner,
       nextValue
     })
-    expect(status).toMatch(/Y/)
+    expect(status).toEqual(winStatus)
   })
 })
