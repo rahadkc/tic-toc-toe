@@ -6,9 +6,12 @@
   --secondary-color: #1c1c1ba8;
   --border-color: #45454575;
   --theme-color: #c2940a;
-  --success-color: #4bb5431f;
+  --success-color: #4bb5432e; 
   --success-border-color: #4bb5433d;
+  --success-light: #23f413;
   --main-bg: var(--primary-color);
+  --warning: #f443361c;
+  --icon-color: var(--light);
 }
 
 body {
