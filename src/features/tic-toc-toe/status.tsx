@@ -10,7 +10,7 @@ const Status: React.FC<IStatusProps> = () => {
 
   const winnerContent = win ? (
     <GameWin>
-      Hurrayyy!: <Trophy>&#x1F3C6;</Trophy> "{winner?.winner}" won the game.
+      Hurrayyy! "{winner?.winner}" <Trophy>&#x1F3C6;</Trophy> won the game.
     </GameWin>
   ) : (
     <></>
