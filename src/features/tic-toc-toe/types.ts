@@ -18,3 +18,10 @@ export enum Player {
   'X',
   'O'
 }
+
+export interface GameStatusType {
+  draw: boolean
+  win: boolean
+  next: string
+  winner: WinnerType
+}

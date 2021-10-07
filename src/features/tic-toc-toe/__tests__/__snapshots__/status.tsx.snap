@@ -5,15 +5,29 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <p
+      <div
         class="sc-bdfBQB kSncg"
-      />
+      >
+        <p
+          class="sc-dlfnuX"
+        >
+          Next player: 
+          X
+        </p>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <p
+    <div
       class="sc-bdfBQB kSncg"
-    />
+    >
+      <p
+        class="sc-dlfnuX"
+      >
+        Next player: 
+        X
+      </p>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

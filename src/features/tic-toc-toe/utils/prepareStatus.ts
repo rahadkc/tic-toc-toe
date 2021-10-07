@@ -1,11 +1,4 @@
-import { SquareLocalType, SquareType, WinnerType } from '../types'
-
-export interface GamestatusType {
-  draw: boolean
-  win: boolean
-  next: string
-  winner: WinnerType
-}
+import { GameStatusType, SquareLocalType, SquareType, WinnerType } from '../types'
 
 function prepareStatus({
   winner,
@@ -15,7 +8,7 @@ function prepareStatus({
   winner: WinnerType
   squares: (SquareType | SquareLocalType)[]
   nextValue: string
-}): GamestatusType {
+}): GameStatusType {
   const draw = !winner && squares.every(Boolean)
   const win = Boolean(winner)
   const next = nextValue

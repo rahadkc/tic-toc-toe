@@ -9,10 +9,10 @@ Object {
         class="App"
       >
         <div
-          class="sc-iBPTik dyCPIf"
+          class="sc-kEjbQP hujztl"
         >
           <div
-            class="sc-fubCzh cgUNKa"
+            class="sc-iqHYmW bJVxvF"
           >
             <div
               class="sc-hKgJUU fomNMZ"
@@ -45,11 +45,16 @@ Object {
                 class="sc-dlfnuX isYWZy"
               />
             </div>
-            <p
+            <div
               class="sc-gKseQn bfNwkI"
             >
-              Next player: X
-            </p>
+              <p
+                class="sc-fubCzh"
+              >
+                Next player: 
+                X
+              </p>
+            </div>
           </div>
           <div
             class="sc-eCstlR fQbJtK"
@@ -69,10 +74,10 @@ Object {
       class="App"
     >
       <div
-        class="sc-iBPTik dyCPIf"
+        class="sc-kEjbQP hujztl"
       >
         <div
-          class="sc-fubCzh cgUNKa"
+          class="sc-iqHYmW bJVxvF"
         >
           <div
             class="sc-hKgJUU fomNMZ"
@@ -105,11 +110,16 @@ Object {
               class="sc-dlfnuX isYWZy"
             />
           </div>
-          <p
+          <div
             class="sc-gKseQn bfNwkI"
           >
-            Next player: X
-          </p>
+            <p
+              class="sc-fubCzh"
+            >
+              Next player: 
+              X
+            </p>
+          </div>
         </div>
         <div
           class="sc-eCstlR fQbJtK"
