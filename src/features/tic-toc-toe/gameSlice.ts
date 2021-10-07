@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../../app/store'
+import { GameStatusType } from './types'
 import { player1 } from './utils/constant'
-import { GamestatusType } from './utils/prepareStatus'
 
 export interface InitialState {
   reset: boolean
-  status: GamestatusType
+  status: GameStatusType
 }
 
 const initialState: InitialState = {
@@ -25,7 +25,7 @@ export const gameSlice = createSlice({
     resetGame: (state: InitialState) => {
       state.reset = !state.reset
     },
-    gameStatus: (state: InitialState, action: PayloadAction<GamestatusType>) => {
+    gameStatus: (state: InitialState, action: PayloadAction<GameStatusType>) => {
       state.status = action.payload
     }
   }
