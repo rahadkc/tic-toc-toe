@@ -1,10 +1,10 @@
 import { Cross } from '../component/cross'
 import { Circle } from '../component/circle'
-import { GameStateLocalType, GameStateType, SquareLocalType } from '../features/tic-toc-toe/types'
+import { SquareLocalType, SquareType } from '../features/tic-toc-toe/types'
 import { player1 } from '../features/tic-toc-toe/utils/constant'
 
-export function usePrepareLocalValueToRender(values: GameStateLocalType): GameStateType {
-  const squares = values.squares.map((square: SquareLocalType) => {
+export function usePrepareLocalValueToRender(values: SquareLocalType[]): SquareType[] {
+  const squares = values.map((square: SquareLocalType) => {
     if (!square) return null
     const iconData: JSX.Element = square.icon === player1 ? <Cross /> : <Circle />
 
@@ -14,5 +14,5 @@ export function usePrepareLocalValueToRender(values: GameStateLocalType): GameSt
     }
   })
 
-  return { squares, xIsNext: values.xIsNext }
+  return squares
 }
