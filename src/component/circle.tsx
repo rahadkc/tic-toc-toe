@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
-export function Circle({ color = 'var(--light)' }) {
+export function Circle({ color = 'var(--icon-color)' }) {
   return (
     <svg
       version="1.1"

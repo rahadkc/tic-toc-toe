@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
-export function Cross({ color = 'var(--light)' }) {
+export function Cross({ color = 'var(--icon-color)' }) {
   return (
     <svg
       version="1.1"
