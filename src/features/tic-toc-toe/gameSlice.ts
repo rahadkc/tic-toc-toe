@@ -1,20 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../../app/store'
-import { GameStatusType } from './types'
+import { GameStateLocalType, GameStatusType } from './types'
 import { player1 } from './utils/constant'
 
 export interface InitialState {
-  reset: boolean
   status: GameStatusType
+  game: GameStateLocalType
 }
 
-const initialState: InitialState = {
-  reset: false,
+export const initialState: InitialState = {
   status: {
     draw: false,
     win: false,
     next: player1,
     winner: null
+  },
+  game: {
+    squares: Array(9).fill(null),
+    xIsNext: true
   }
 }
 
@@ -22,18 +25,19 @@ export const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    resetGame: (state: InitialState) => {
-      state.reset = !state.reset
-    },
+    resetGame: () => initialState,
     gameStatus: (state: InitialState, action: PayloadAction<GameStatusType>) => {
       state.status = action.payload
+    },
+    gameState: (state: InitialState, action: PayloadAction<GameStateLocalType>) => {
+      state.game = action.payload
     }
   }
 })
 
-export const { resetGame, gameStatus } = gameSlice.actions
+export const { resetGame, gameStatus, gameState } = gameSlice.actions
 
-export const selectReset = (state: RootState) => state.game.reset
 export const selectStatus = (state: RootState) => state.game.status
+export const selectGameState = (state: RootState) => state.game.game
 
 export default gameSlice.reducer

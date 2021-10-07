@@ -1,6 +1,6 @@
 import { cleanup } from '@testing-library/react'
 import { store } from '../../../app/store'
-import { gameStatus, resetGame } from '../gameSlice'
+import { gameState, gameStatus, initialState, resetGame } from '../gameSlice'
 import { GameStatusType } from '../types'
 import { player1, player2 } from '../utils/constant'
 import prepareStatus from '../utils/prepareStatus'
@@ -22,6 +22,11 @@ const winner = null
 const nextValue = 'Z'
 const winPlayer = 'THANOS'
 
+const mockGameState = {
+  squares: squaresWithWinner,
+  xIsNext: true
+}
+
 const defaultStatus: GameStatusType = { draw: false, win: false, next: nextValue, winner: null }
 const drawStatus: GameStatusType = {
   draw: true,
@@ -39,17 +44,15 @@ const winStatus: GameStatusType = {
 describe('REDUX Actions', () => {
   afterEach(cleanup)
 
-  test('Reset: should toggle the reset value', () => {
-    const defaultReset = store.getState().game.reset
-    expect(defaultReset).toBeFalsy()
+  test('resetGame: should reset REDUX state to the initialState', () => {
+    store.dispatch(gameState({ ...mockGameState }))
+    const gameStateWithValue = store.getState().game.game
+    expect(gameStateWithValue).toEqual(mockGameState)
 
     store.dispatch(resetGame())
-    const changedReset = store.getState().game.reset
-    expect(changedReset).toBeTruthy()
-
-    store.dispatch(resetGame())
-    const changedResetAgain = store.getState().game.reset
-    expect(changedResetAgain).toBeFalsy()
+    const { _persist, ...rest } = store.getState()
+    expect(rest.game.game).not.toEqual(mockGameState)
+    expect(rest.game).toEqual(initialState)
   })
 
   test('Status-default: should return default status state', () => {
